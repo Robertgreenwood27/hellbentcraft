@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #f0f0f0;
+  --primary: #9333ea;
+  --primary-dark: #7e22ce;
+  --secondary: #380d4c;
+  --accent: #d946ef;
+  --accent-light: #f0abfc;
+  --gray-dark: #171717;
+  --gray-medium: #262626;
+  --gray-light: #404040;
 }
 
 @theme inline {
@@ -12,15 +20,213 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  position: relative;
+}
+
+/* Striped background with subtle animation */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    #000000,
+    #000000 10px,
+    #0a0a0a 10px,
+    #0a0a0a 20px
+  );
+  opacity: 0.2;
+  z-index: -1;
+  animation: subtle-pulse 10s ease-in-out infinite;
+}
+
+@keyframes subtle-pulse {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.3;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Decorative dripping border effect for containers */
+.drip-border {
+  position: relative;
+}
+
+.drip-border::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 20'%3E%3Cpath fill='%23380d4c' d='M0,0 L10,0 C15,0 15,20 20,20 C25,20 25,10 30,10 C35,10 35,20 40,20 C45,20 45,0 50,0 C55,0 55,20 60,20 C65,20 65,10 70,10 C75,10 75,20 80,20 C85,20 85,0 90,0 L100,0 L100,20 L0,20 Z'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 100px 20px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Button hover effects */
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Text styles */
+.gothic-title {
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.beetlejuice-pattern {
+  background: repeating-linear-gradient(
+    45deg,
+    black,
+    black 10px,
+    #380d4c 10px,
+    #380d4c 20px
+  );
+}
+
+/* Product card hover effect */
+.product-card {
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(147, 51, 234, 0.3);
+}
+
+/* Purple glow effect for highlighting important elements */
+.purple-glow {
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+}
+
+/* Custom shape dividers for sections */
+.divider-top {
+  position: relative;
+  height: 50px;
+  margin-top: -50px;
+}
+
+.divider-top svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(180deg);
+}
+
+.divider-bottom {
+  position: relative;
+  height: 50px;
+  margin-bottom: -50px;
+}
+
+.divider-bottom svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Animated spider web for corners (can be applied to containers) */
+.web-corner {
+  position: relative;
+  overflow: hidden;
+}
+
+.web-corner::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='rgba(147, 51, 234, 0.3)' stroke-width='1' d='M0,0 L100,100 M20,0 L100,80 M40,0 L100,60 M60,0 L100,40 M80,0 L100,20 M0,20 L80,100 M0,40 L60,100 M0,60 L40,100 M0,80 L20,100'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='rgba(147, 51, 234, 0.3)' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='20' fill='none' stroke='rgba(147, 51, 234, 0.3)' stroke-width='1'/%3E%3Ccircle cx='50' cy='50' r='10' fill='none' stroke='rgba(147, 51, 234, 0.3)' stroke-width='1'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Pulse animation for CTA buttons */
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: var(--primary);
+  }
+  50% {
+    border-color: var(--accent);
+  }
+}
+
+.pulse-border {
+  animation: pulse-border 2s infinite;
+}
+
+/* Custom tooltip */
+.custom-tooltip {
+  position: relative;
+}
+
+.custom-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  background-color: var(--primary-dark);
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.custom-tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: calc(100% + 5px);
+}
+
+/* Spooky text shadow effect */
+.spooky-text {
+  text-shadow: 0 0 5px var(--primary), 0 0 10px var(--accent);
 }
