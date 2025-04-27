@@ -79,7 +79,7 @@ export default function NotFound() {
         </div>
 
         <div className="mt-12 text-sm text-gray-400 spooky-text">
-          <p>&quot;Just because you&apos;re lost doesn't mean you can&apos;t dance...&quot;</p>
+          <p>&quot;Just because you&apos;re lost doesn&apos;t mean you can&apos;t dance...&quot;</p>
         </div>
       </div>
     </div>
