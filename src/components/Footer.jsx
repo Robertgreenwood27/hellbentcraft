@@ -130,7 +130,9 @@ export default function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Hellbent Craft. All rights reserved.</p>
+        <Link href="/admin/login" className="hover:no-underline">
+  <p>&copy; {new Date().getFullYear()} Hellbent Craft. All rights reserved.</p>
+</Link>
         </div>
       </div>
     </footer>

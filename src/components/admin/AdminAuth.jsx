@@ -17,7 +17,7 @@ export default function AdminAuth({ children }) {
       setIsAuthenticated(isAuth);
       setIsLoading(false);
       
-      if (!isAuth) {
+      if (!isAuth && window.location.pathname !== '/admin/login') {
         router.push('/admin/login');
       }
     };
