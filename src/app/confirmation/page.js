@@ -39,7 +39,7 @@ export default function OrderConfirmation() {
           <h1 className="text-3xl md:text-4xl font-bold mb-8 font-serif text-purple-300">
             Order Not Found
           </h1>
-          <p className="text-xl mb-8">We couldn't find the order you're looking for.</p>
+          <p className="text-xl mb-8">We couldn&apos;t find the order you&apos;re looking for.</p>
           <Link
             href="/shop"
             className="inline-block bg-purple-800 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-medium text-lg transition-colors border border-purple-600"
@@ -69,8 +69,8 @@ export default function OrderConfirmation() {
         
         <div className="bg-gray-900 rounded-lg p-6 border border-gray-800 mb-8 max-w-md mx-auto">
           <h2 className="text-xl font-bold mb-4">Order Status: {order.status}</h2>
-          <p className="mb-4">We'll send an email confirmation with tracking information once your order ships.</p>
-          <p className="text-sm text-gray-400">Please check your spam folder if you don't see the email.</p>
+          <p className="mb-4">We&apos;ll send an email confirmation with tracking information once your order ships.</p>
+          <p className="text-sm text-gray-400">Please check your spam folder if you don&apos;t see the email.</p>
         </div>
         
         <Link
