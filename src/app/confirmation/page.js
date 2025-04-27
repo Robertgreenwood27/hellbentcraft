@@ -1,11 +1,10 @@
 // src/app/confirmation/page.js
-'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
-export default function OrderConfirmation() {
+function OrderConfirmationContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get('orderId');
   const [loading, setLoading] = useState(true);
@@ -81,5 +80,17 @@ export default function OrderConfirmation() {
         </Link>
       </div>
     </div>
+  );
+}
+
+export default function OrderConfirmation() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-black text-gray-200 pt-24 flex items-center justify-center">
+        <div className="animate-spin h-8 w-8 border-4 border-purple-500 rounded-full border-t-transparent"></div>
+      </div>
+    }>
+      <OrderConfirmationContent />
+    </Suspense>
   );
 }

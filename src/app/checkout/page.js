@@ -1,7 +1,7 @@
 // src/app/checkout/page.js
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from '@/lib/cartContext';
 import { useRouter } from 'next/navigation';
 import CheckoutForm from '@/components/CheckoutForm';
@@ -13,8 +13,13 @@ export default function Checkout() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);
   
-  if (cart.length === 0) {
-    router.push('/cart');
+  useEffect(() => {
+    if (cart.length === 0) {
+      router.push('/cart');
+    }
+  }, [cart, router]);
+  
+  if (typeof window !== 'undefined' && cart.length === 0) {
     return null;
   }
   

@@ -24,7 +24,6 @@ export default function OrdersTable({ orders: initialOrders }) {
       
       if (field === 'customer') {
         valueA = a.customer.name;
-        valueA = a.customer.name;
         valueB = b.customer.name;
       } else if (field === 'total') {
         valueA = parseFloat(a.total);
