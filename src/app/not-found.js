@@ -43,7 +43,7 @@ export default function NotFound() {
         </h1>
 
         <p className="text-xl mb-8">
-          You've wandered into the wrong part of the club. The page you're looking for is hanging out somewhere else.
+          You've wandered into the wrong part of the club. The page you&apos;re looking for is hanging out somewhere else.
         </p>
 
         <div className="bg-gray-900/60 backdrop-blur-sm rounded-lg p-6 border border-purple-800 mb-8 max-w-md mx-auto pulse-border">
@@ -79,7 +79,7 @@ export default function NotFound() {
         </div>
 
         <div className="mt-12 text-sm text-gray-400 spooky-text">
-          <p>"Just because you're lost doesn't mean you can't dance..."</p>
+          <p>"Just because you&apos;re lost doesn't mean you can&apos;t dance..."</p>
         </div>
       </div>
     </div>
