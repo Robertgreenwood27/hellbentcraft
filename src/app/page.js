@@ -62,15 +62,6 @@ export default async function Home() {
           <h2 className="text-4xl font-bold mb-8 font-serif text-center text-purple-300">About The Artist</h2>
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/3">
-              <div className="rounded-lg overflow-hidden border-2 border-purple-700">
-                <Image 
-                  src="/images/artist.jpg" 
-                  alt="Artist" 
-                  width={400} 
-                  height={500}
-                  className="object-cover"
-                />
-              </div>
             </div>
             <div className="w-full md:w-2/3">
               <p className="text-lg mb-4">
