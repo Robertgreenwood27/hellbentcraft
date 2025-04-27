@@ -2,28 +2,28 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function AdminAuth({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const pathname = usePathname();
   
-  // In a real implementation, you would check with your authentication service
   useEffect(() => {
-    // Mock authentication check
     const authCheck = () => {
       const isAuth = localStorage.getItem('hellbentcraft_auth') === 'true';
       setIsAuthenticated(isAuth);
       setIsLoading(false);
       
-      if (!isAuth && window.location.pathname !== '/admin/login') {
+      // Don't redirect if already on login page
+      if (!isAuth && pathname !== '/admin/login') {
         router.push('/admin/login');
       }
     };
     
     authCheck();
-  }, [router]);
+  }, [router, pathname]);
   
   if (isLoading) {
     return (

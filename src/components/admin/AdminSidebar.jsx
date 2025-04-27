@@ -10,30 +10,17 @@ export default function AdminSidebar() {
   const [isOpen, setIsOpen] = useState(true);
 
   function NavItem({ href, label, icon, external }) {
-    const isActive = !external && pathname === href;
-
-    if (external) {
-      return (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-3 px-4 py-3 rounded-md hover:bg-gray-800 text-gray-300"
-        >
-          {icon}
-          <span>{label}</span>
-        </a>
-      );
-    }
-
+    const isActive = usePathname() === href;
+    
     return (
-      <Link
+      <Link 
         href={href}
         className={`flex items-center gap-3 px-4 py-3 rounded-md ${
-          isActive
-            ? 'bg-purple-900/50 text-white'
+          isActive 
+            ? 'bg-purple-900/50 text-white' 
             : 'hover:bg-gray-800 text-gray-300'
         }`}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {icon}
         <span>{label}</span>
@@ -197,27 +184,16 @@ export default function AdminSidebar() {
               </svg>
             }
           />
-          <NavItem
-            href={process.env.NEXT_PUBLIC_SANITY_STUDIO_URL || 'https://hellbentcraft.sanity.studio'}
-            label="Sanity Studio"
-            icon={
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                />
-              </svg>
-            }
-            external
-          />
+          <NavItem 
+  href="https://hellbentcraft.sanity.studio" 
+  label="Sanity Studio" 
+  icon={
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+    </svg>
+  }
+  external={true}
+/>
         </nav>
 
         <div className="mt-auto pt-8">
