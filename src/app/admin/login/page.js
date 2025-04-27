@@ -18,20 +18,30 @@ export default function AdminLogin() {
     setError('');
 
     try {
+      // For testing purposes - hardcoded credentials
+      // In production, use your API endpoint
+      if (email === 'admin@hellbentcraft.com' && password === 'securepassword') {
+        localStorage.setItem('hellbentcraft_auth', 'true');
+        router.push('/admin');
+        return;
+      }
+
       const response = await fetch('/api/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
       });
+      
       const data = await response.json();
 
-      if (response.ok) {
+      if (data.success) {
         localStorage.setItem('hellbentcraft_auth', 'true');
         router.push('/admin');
       } else {
         setError(data.message || 'Invalid email or password');
       }
-    } catch {
+    } catch (error) {
+      console.error('Login error:', error);
       setError('An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
@@ -42,17 +52,10 @@ export default function AdminLogin() {
     <div className="min-h-screen bg-black text-gray-200 flex items-center justify-center p-4">
       <div className="max-w-md w-full bg-gray-900 rounded-lg p-8 border border-gray-800">
         <div className="text-center mb-8">
-          <div className="relative h-24 w-24 mx-auto mb-4">
-            <Image
-              src="/images/hellbent-logo.png"
-              alt="Hellbent Craft"
-              fill
-              className="object-contain"
-            />
-          </div>
           <h1 className="text-3xl font-bold font-serif text-purple-300">
             Admin Login
           </h1>
+          <p className="mt-2 text-gray-400">Enter your credentials to access the admin dashboard</p>
         </div>
 
         {error && (
@@ -103,44 +106,14 @@ export default function AdminLogin() {
           </button>
         </form>
 
-        <div className="mt-12">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold font-serif text-purple-300">
-              Quick Actions
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Link
-              href="/admin/inventory/new"
-              className="bg-gray-900 hover:bg-gray-800 border border-gray-800 rounded-lg p-6 text-center"
-            >
-              <svg className="w-8 h-8 mx-auto mb-2 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-              <span>Add New Product</span>
-            </Link>
-            <Link
-              href="https://hellbentcraft.sanity.studio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gray-900 hover:bg-gray-800 border border-gray-800 rounded-lg p-6 text-center"
-            >
-              <svg className="w-8 h-8 mx-auto mb-2 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-              </svg>
-              <span>Open Sanity Studio</span>
-            </Link>
-            <Link
-              href="/admin/settings"
-              className="bg-gray-900 hover:bg-gray-800 border border-gray-800 rounded-lg p-6 text-center"
-            >
-              <svg className="w-8 h-8 mx-auto mb-2 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94 1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              <span>Edit Settings</span>
-            </Link>
-          </div>
+        <div className="mt-6 text-center">
+          <Link href="/" className="text-purple-400 hover:text-purple-300">
+            ← Return to Shop
+          </Link>
+        </div>
+        
+        <div className="mt-8 pt-6 border-t border-gray-800 text-center text-sm text-gray-400">
+          <p>For demo purposes, use: admin@hellbentcraft.com / securepassword</p>
         </div>
       </div>
     </div>
