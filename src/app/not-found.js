@@ -12,75 +12,71 @@ export default function NotFound() {
 
   if (!mounted) return null;
 
-  const src = `https://www.youtube.com/embed/bS6KWNB5NEo?autoplay=1&mute=${muted ? 1 : 0}&controls=0&loop=1&playlist=bS6KWNB5NEo&showinfo=0&rel=0&modestbranding=1`;
+  const src = `https://www.youtube.com/embed/bS6KWNB5NEo?autoplay=1&mute=${
+    muted ? 1 : 0
+  }&controls=0&loop=1&playlist=bS6KWNB5NEo&showinfo=0&rel=0&modestbranding=1`;
 
   return (
-    <div className="min-h-screen bg-black text-gray-200 flex flex-col items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 w-full h-full z-0">
-        <iframe
-          className="w-full h-full"
-          src={src}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '100vw',
-            height: '100vh',
-            objectFit: 'cover',
-            pointerEvents: 'none'
-          }}
-          title="Goth bats dancing"
-        />
-        <div className="absolute inset-0 bg-black/70 z-10"></div>
-      </div>
-
-      <div className="max-w-4xl mx-auto px-4 py-12 text-center z-20 relative">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif text-purple-300 gothic-title">
+    <div className="relative z-10 flex flex-col items-center justify-center min-h-screen overflow-hidden text-gray-200">
+      {/* Page content */}
+      <div className="relative z-10 max-w-4xl w-full px-4 py-8 text-center">
+        <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl font-bold mb-4 text-purple-300 gothic-title">
           404: The Dance Floor is Empty
         </h1>
-
-        <p className="text-xl mb-8">
-          You&apos;ve wandered into the wrong part of the club. The page you&apos;re looking for is hanging out somewhere else.
+        
+        <p className="mb-6 text-base sm:text-lg md:text-xl">
+          You've wandered into the wrong part of the club. The page you're looking for is hanging out somewhere else.
         </p>
 
-        <div className="bg-gray-900/60 backdrop-blur-sm rounded-lg p-6 border border-purple-800 mb-8 max-w-md mx-auto pulse-border">
-          <h2 className="text-xl font-bold mb-4 text-purple-300">Did the DJ play the wrong track?</h2>
-          <ul className="text-left text-gray-300 mb-4">
-            <li className="mb-2">• The URL might be hanging upside down</li>
-            <li className="mb-2">• Perhaps this page flew away at dawn</li>
-            <li className="mb-2">• Even goths get lost sometimes</li>
-          </ul>
+        {/* Video is positioned differently based on screen size */}
+        <div className="sm:fixed sm:inset-0 sm:-z-10 w-full h-64 sm:h-screen sm:w-screen overflow-hidden mb-6 sm:mb-0">
+          <iframe
+            src={src}
+            title="Goth bats dancing"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full object-cover sm:pointer-events-none"
+          />
+        </div>
 
+        {/* Optional overlay for contrast—appears only on larger screens */}
+        <div className="hidden sm:block fixed inset-0 -z-5 bg-black/40" />
+
+        <div className="mb-6 mx-auto max-w-md bg-black/60 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-purple-800 pulse-border">
+          <h2 className="mb-3 text-xl sm:text-2xl font-bold text-purple-300">
+            Did the DJ play the wrong track?
+          </h2>
+          <ul className="mb-4 text-left text-sm text-gray-300">
+            <li className="mb-1">• The URL might be hanging upside down</li>
+            <li className="mb-1">• Perhaps this page flew away at dawn</li>
+            <li className="mb-1">• Even goths get lost sometimes</li>
+          </ul>
           <button
             onClick={() => setMuted(!muted)}
-            className="mt-2 px-4 py-2 bg-purple-800 hover:bg-purple-700 rounded-md text-white border border-purple-600 hover-glow"
+            className="w-full sm:w-auto px-4 py-2 text-sm sm:text-base bg-purple-800 hover:bg-purple-700 rounded-md border border-purple-600 hover-glow text-white"
           >
-            Toggle Music
+            {muted ? "Unmute Music" : "Mute Music"}
           </button>
         </div>
 
-        <div className="space-y-4 md:space-y-0 md:space-x-4">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
           <Link
             href="/"
-            className="inline-block bg-purple-800 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-medium text-lg transition-colors border border-purple-600 hover-glow"
+            className="w-full sm:w-auto px-6 py-2 text-base sm:text-lg font-medium text-white bg-purple-800 hover:bg-purple-700 border border-purple-600 rounded-md hover-glow transition-colors"
           >
             Back to the Main Floor
           </Link>
-
           <Link
             href="/shop"
-            className="inline-block bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-md font-medium text-lg transition-colors border border-gray-700 hover-glow"
+            className="w-full sm:w-auto px-6 py-2 text-base sm:text-lg font-medium text-white bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-md hover-glow transition-colors"
           >
             Browse Our Dark Artifacts
           </Link>
         </div>
 
-        <div className="mt-12 text-sm text-gray-400 spooky-text">
-          <p>&quot;Just because you&apos;re lost doesn&apos;t mean you can&apos;t dance...&quot;</p>
-        </div>
+        <p className="text-xs sm:text-sm text-gray-400 spooky-text">
+          "Just because you're lost doesn't mean you can't dance..."
+        </p>
       </div>
     </div>
   );
