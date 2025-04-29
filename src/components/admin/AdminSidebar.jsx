@@ -185,7 +185,7 @@ export default function AdminSidebar() {
             }
           />
           <NavItem 
-  href="https://hellbentcraft.sanity.studio" 
+  href={process.env.NEXT_PUBLIC_SANITY_STUDIO_URL || "/studio"}  
   label="Sanity Studio" 
   icon={
     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

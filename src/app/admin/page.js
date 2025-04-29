@@ -78,7 +78,7 @@ export default async function AdminDashboard() {
           </Link>
           
           <Link
-            href={process.env.NEXT_PUBLIC_SANITY_STUDIO_URL || "https://hellbentcraft.sanity.studio"}
+            href={process.env.NEXT_PUBLIC_SANITY_STUDIO_URL || "/studio"} 
             className="bg-gray-900 hover:bg-gray-800 border border-gray-800 rounded-lg p-6 text-center"
             target="_blank"
             rel="noopener noreferrer"
