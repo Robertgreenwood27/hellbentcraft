@@ -1,10 +1,9 @@
 // src/sanity/schemaTypes/index.js
-// Using CommonJS require for compatibility
-const product = require('./product');
-const category = require('./category');
-const order = require('./order');
-const customer = require('./customer');
-const siteSettings = require('./siteSettings');
+import product from './product';
+import category from './category';
+import order from './order';
+import customer from './customer';
+import siteSettings from './siteSettings';
 
 exports.schemaTypes = [
   product,

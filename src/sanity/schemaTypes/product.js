@@ -75,7 +75,7 @@ export default {
       select: { 
         title: 'title', 
         subtitle: 'price', 
-        media: 'images[0]' 
+        media: 'images.0' // Changed from 'images[0]' to 'images.0'
       },
       prepare({ title, subtitle, media }) {
         return { 
