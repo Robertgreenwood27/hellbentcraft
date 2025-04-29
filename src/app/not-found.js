@@ -25,7 +25,7 @@ export default function NotFound() {
         </h1>
         
         <p className="mb-6 text-base sm:text-lg md:text-xl">
-          You've wandered into the wrong part of the club. The page you're looking for is hanging out somewhere else.
+          You&apos;ve wandered into the wrong part of the club. The page you&apos;re looking for is hanging out somewhere else.
         </p>
 
         {/* Video is positioned differently based on screen size */}
@@ -75,7 +75,7 @@ export default function NotFound() {
         </div>
 
         <p className="text-xs sm:text-sm text-gray-400 spooky-text">
-          "Just because you're lost doesn't mean you can't dance..."
+          "Just because you&apos;re lost doesn't mean you can&apos;t dance..."
         </p>
       </div>
     </div>
