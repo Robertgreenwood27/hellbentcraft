@@ -56,32 +56,6 @@ export default async function Home() {
         </div>
       </section>
       
-      {/* About Section */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-8 font-serif text-center text-purple-300">About The Artist</h2>
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="w-full md:w-1/3">
-            </div>
-            <div className="w-full md:w-2/3">
-              <p className="text-lg mb-4">
-                Hellbent Craft was born from a passion for the macabre and beautiful. Each piece is 
-                handcrafted with attention to detail and a touch of the otherworldly.
-              </p>
-              <p className="text-lg mb-4">
-                Drawing inspiration from Victorian gothic aesthetics, horror classics, and the 
-                supernatural, every creation tells a story of darkness and wonder.
-              </p>
-              <Link 
-                href="/about" 
-                className="inline-block text-purple-400 hover:text-purple-300 font-medium"
-              >
-                Learn more about the artist →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
       
       {/* Featured Products */}
       <section className="py-20 bg-black">
@@ -145,6 +119,33 @@ export default async function Home() {
               Subscribe
             </button>
           </form>
+        </div>
+      </section>
+
+            {/* About Section */}
+            <section className="py-20 bg-gray-900">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-8 font-serif text-center text-purple-300">About The Artist</h2>
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="w-full md:w-1/3">
+            </div>
+            <div className="w-full md:w-2/3">
+              <p className="text-lg mb-4">
+                Hellbent Craft was born from a passion for the macabre and beautiful. Each piece is 
+                handcrafted with attention to detail and a touch of the otherworldly.
+              </p>
+              <p className="text-lg mb-4">
+                Drawing inspiration from Victorian gothic aesthetics, horror classics, and the 
+                supernatural, every creation tells a story of darkness and wonder.
+              </p>
+              <Link 
+                href="/about" 
+                className="inline-block text-purple-400 hover:text-purple-300 font-medium"
+              >
+                Learn more about the artist →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
