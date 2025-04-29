@@ -75,7 +75,7 @@ export default function NotFound() {
         </div>
 
         <p className="text-xs sm:text-sm text-gray-400 spooky-text">
-          "Just because you&apos;re lost doesn't mean you can&apos;t dance..."
+        &quot;Just because you&apos;re lost doesn't mean you can&apos;t dance...&quot;
         </p>
       </div>
     </div>
