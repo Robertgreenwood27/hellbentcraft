@@ -31,7 +31,7 @@ export default function About() {
             
             <p className="text-lg">
               Every item is made with care in our studio, ensuring that when you bring a piece of 
-              Hellbent Craft into your home, you're adding something truly unique and thoughtfully created.
+              Hellbent Craft into your home, you&apos;re adding something truly unique and thoughtfully created.
             </p>
           </div>
         </div>

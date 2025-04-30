@@ -105,7 +105,7 @@ export default function Shipping() {
                 <ul className="list-disc pl-5 text-gray-400 space-y-1">
                   <li>Custom or personalized pieces</li>
                   <li>Sale items</li>
-                  <li>Items marked as "Final Sale"</li>
+                  <li>Items marked as &quot;Final Sale&quot;</li>
                   <li>Items that have been worn, damaged, or altered</li>
                 </ul>
               </div>

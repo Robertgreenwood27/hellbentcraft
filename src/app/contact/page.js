@@ -57,7 +57,7 @@ export default function Contact() {
           </h1>
           <p className="text-lg max-w-2xl mx-auto text-gray-300">
             Have questions about your order or interested in a custom piece? 
-            We're here to help with all your dark and gothic needs.
+            We&apos;re here to help with all your dark and gothic needs.
           </p>
         </div>
         
@@ -213,13 +213,13 @@ export default function Contact() {
             <div>
               <h3 className="text-xl font-semibold mb-2">How do I track my order?</h3>
               <p className="text-gray-400">
-                Once your order ships, you'll receive a confirmation email with tracking information. 
+                Once your order ships, you&apos;ll receive a confirmation email with tracking information. 
                 You can also check your order status in your account dashboard.
               </p>
             </div>
             
             <div>
-              <h3 className="text-xl font-semibold mb-2">What's your return policy?</h3>
+              <h3 className="text-xl font-semibold mb-2">What&apos;s your return policy?</h3>
               <p className="text-gray-400">
                 We accept returns within 14 days of delivery for items in their original condition. 
                 Custom pieces are non-returnable. Please view our <Link href="/shipping" className="text-purple-400 hover:text-purple-300">shipping and returns</Link> page for details.
@@ -229,7 +229,7 @@ export default function Contact() {
             <div>
               <h3 className="text-xl font-semibold mb-2">Do you offer custom designs?</h3>
               <p className="text-gray-400">
-                Yes! We love creating custom pieces. Please contact us with your ideas, and we'll discuss 
+                Yes! We love creating custom pieces. Please contact us with your ideas, and we&apos;ll discuss 
                 possibilities, pricing, and timeframes for your unique creation.
               </p>
             </div>
@@ -238,7 +238,7 @@ export default function Contact() {
               <h3 className="text-xl font-semibold mb-2">How long does shipping take?</h3>
               <p className="text-gray-400">
                 Standard shipping within the US takes 3-5 business days. International shipping varies by location, 
-                typically 7-14 business days. Custom pieces have separate production timeframes that we'll discuss during ordering.
+                typically 7-14 business days. Custom pieces have separate production timeframes that we&apos;ll discuss during ordering.
               </p>
             </div>
           </div>
