@@ -23,8 +23,8 @@ export default function Shipping() {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Processing Times</h3>
                 <p className="text-gray-400">
-                  All orders are processed within 1-3 business days. If there's a delay with your order, 
-                  we'll contact you via email. Please note that custom pieces require additional production time 
+                  All orders are processed within 1-3 business days. If there&apos;s a delay with your order, 
+                  we&apos;ll contact you via email. Please note that custom pieces require additional production time 
                   that will be communicated during the ordering process.
                 </p>
               </div>
@@ -68,7 +68,7 @@ export default function Shipping() {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Tracking Your Order</h3>
                 <p className="text-gray-400">
-                  Once your order ships, you'll receive a confirmation email with tracking information. 
+                  Once your order ships, you&apos;ll receive a confirmation email with tracking information. 
                   You can also view your order status by logging into your account on our website.
                 </p>
               </div>
@@ -115,9 +115,9 @@ export default function Shipping() {
                 <ol className="list-decimal pl-5 text-gray-400 space-y-1">
                   <li>Contact us at zatanna@hellbentcraft.com to initiate a return</li>
                   <li>Include your order number and reason for return</li>
-                  <li>We'll provide a return shipping address and instructions</li>
+                  <li>We&apos;ll provide a return shipping address and instructions</li>
                   <li>Ship your item back to us with tracking information</li>
-                  <li>Once received and inspected, we'll process your refund</li>
+                  <li>Once received and inspected, we&apos;ll process your refund</li>
                 </ol>
               </div>
               
@@ -133,7 +133,7 @@ export default function Shipping() {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Exchanges</h3>
                 <p className="text-gray-400">
-                  If you'd like to exchange an item for a different size or variant, please contact us to 
+                  If you&apos;d like to exchange an item for a different size or variant, please contact us to 
                   arrange the exchange. Availability of exchange items cannot be guaranteed.
                 </p>
               </div>
@@ -142,7 +142,7 @@ export default function Shipping() {
                 <h3 className="text-xl font-semibold mb-2">Damaged or Defective Items</h3>
                 <p className="text-gray-400">
                   If you receive a damaged or defective item, please contact us within 48 hours of delivery 
-                  with photos of the damage. We'll arrange for a replacement or refund at our discretion.
+                  with photos of the damage. We&apos;ll arrange for a replacement or refund at our discretion.
                 </p>
               </div>
             </div>
@@ -156,7 +156,7 @@ export default function Shipping() {
             
             <p className="text-center text-gray-300 mb-6">
               If you have any questions about our shipping methods or return policy, 
-              please don't hesitate to contact us.
+              please don&apos;t hesitate to contact us.
             </p>
             
             <div className="text-center">

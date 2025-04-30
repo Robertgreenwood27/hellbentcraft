@@ -20,7 +20,7 @@ export default function Terms() {
             <section className="mb-8">
               <h2 className="text-2xl font-bold mb-4 font-serif text-purple-300">1. Introduction</h2>
               <p>
-                Welcome to Hellbent Craft ("we," "our," or "us"). These Terms and Conditions govern your use of the Hellbent Craft website (hellbentcraft.com) and any related services, including the purchase of products.
+                Welcome to Hellbent Craft (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). These Terms and Conditions govern your use of the Hellbent Craft website (hellbentcraft.com) and any related services, including the purchase of products.
               </p>
               <p>
                 By accessing our website or placing an order, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you may not use our website.
