@@ -1,0 +1,28 @@
+# robots.txt for Hellbent Craft
+# Last updated: April 30, 2025
+
+User-agent: *
+# Allow access to most of the site
+Allow: /
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /studio/
+
+# Disallow account pages and checkout process
+Disallow: /account/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /confirmation/
+
+# Disallow duplicate/filtered URLs and parameters
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+Disallow: /*?*q=
+
+# Allow static resources
+Allow: /images/
+Allow: /public/
+
+# Sitemap location
+Sitemap: https://hellbentcraft.com/sitemap.xml
