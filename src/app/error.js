@@ -1,4 +1,7 @@
 'use client';
+
+import Link from "next/link";
+
 // src/app/error.js - Global error handler for Next.js App Router
 
 export default function GlobalError({
@@ -24,12 +27,12 @@ export default function GlobalError({
             Try again
           </button>
           
-          <a
-            href="/"
-            className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-md font-medium transition-colors border border-gray-700"
-          >
-            Return Home
-          </a>
+          <Link
+      href="/"
+      className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-md font-medium transition-colors border border-gray-700"
+    >
+      Return Home
+    </Link>
         </div>
       </div>
     </div>
