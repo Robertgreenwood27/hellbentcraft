@@ -4,7 +4,14 @@ import Link from "next/link";
 import { getProducts } from "@/lib/sanity";
 
 export default async function Home() {
-  const featuredProducts = await getProducts({ featured: true, limit: 4 });
+  // Add error handling for featured products
+  let featuredProducts = [];
+  try {
+    featuredProducts = await getProducts({ featured: true, limit: 4 }) || [];
+  } catch (error) {
+    console.error("Error loading featured products:", error);
+    // Continue with empty array if there's an error
+  }
   
   return (
     <div className="min-h-screen bg-black text-gray-200">
@@ -70,31 +77,44 @@ export default async function Home() {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {featuredProducts.map((product) => (
-              <div key={product._id} className="group">
-                <Link href={`/product/${product.slug.current}`}>
-                  <div className="relative aspect-square mb-4 overflow-hidden rounded-lg border border-gray-800 bg-gray-900 transition-all duration-300 group-hover:border-purple-600">
-                    <Image 
-                      src={product.images[0].url} 
-                      alt={product.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    {product.stock <= 0 && (
-                      <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
-                        <span className="text-xl font-semibold text-red-500">Sold Out</span>
+          {featuredProducts.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {featuredProducts.map((product) => {
+                // Make sure product has the required data
+                if (!product || !product._id || !product.slug || !product.slug.current || !product.images || product.images.length === 0) {
+                  return null;
+                }
+                
+                return (
+                  <div key={product._id} className="group">
+                    <Link href={`/product/${product.slug.current}`}>
+                      <div className="relative aspect-square mb-4 overflow-hidden rounded-lg border border-gray-800 bg-gray-900 transition-all duration-300 group-hover:border-purple-600">
+                        <Image 
+                          src={product.images[0].url} 
+                          alt={product.images[0].alt || product.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        {typeof product.stock === 'number' && product.stock <= 0 && (
+                          <div className="absolute inset-0 bg-black/70 flex items-center justify-center">
+                            <span className="text-xl font-semibold text-red-500">Sold Out</span>
+                          </div>
+                        )}
                       </div>
-                    )}
+                      <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-300 transition-colors">
+                        {product.title}
+                      </h3>
+                      <p className="text-gray-400">${product.price.toFixed(2)}</p>
+                    </Link>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-purple-300 transition-colors">
-                    {product.title}
-                  </h3>
-                  <p className="text-gray-400">${product.price.toFixed(2)}</p>
-                </Link>
-              </div>
-            ))}
-          </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-xl text-gray-400">No featured products found. Check back soon for new additions!</p>
+            </div>
+          )}
         </div>
       </section>
       
@@ -122,8 +142,8 @@ export default async function Home() {
         </div>
       </section>
 
-            {/* About Section */}
-            <section className="py-20 bg-gray-900">
+      {/* About Section */}
+      <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl font-bold mb-8 font-serif text-center text-purple-300">About The Artist</h2>
           <div className="flex flex-col md:flex-row items-center gap-8">

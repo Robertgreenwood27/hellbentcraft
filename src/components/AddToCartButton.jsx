@@ -10,7 +10,22 @@ export default function AddToCartButton({ product }) {
   const [isAdding, setIsAdding] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   
+  // Ensure the product has valid data
+  const isValidProduct = product && 
+    product._id && 
+    product.title && 
+    typeof product.price === 'number' && 
+    product.images && 
+    product.images.length > 0 && 
+    product.images[0].url && 
+    product.slug;
+  
   const handleAddToCart = () => {
+    if (!isValidProduct) {
+      console.error("Cannot add invalid product to cart", product);
+      return;
+    }
+    
     setIsAdding(true);
     setTimeout(() => {
       addToCart({
@@ -26,6 +41,20 @@ export default function AddToCartButton({ product }) {
       setTimeout(() => setShowSuccess(false), 2000);
     }, 500);
   };
+
+  // Calculate max stock safely
+  const maxStock = typeof product.stock === 'number' ? product.stock : 0;
+  
+  if (!isValidProduct || maxStock <= 0) {
+    return (
+      <button
+        disabled
+        className="w-full bg-gray-800 text-gray-400 px-6 py-3 rounded-md font-medium border border-gray-700 cursor-not-allowed"
+      >
+        Cannot Add to Cart
+      </button>
+    );
+  }
   
   return (
     <div>
@@ -45,13 +74,13 @@ export default function AddToCartButton({ product }) {
             value={quantity}
             onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
             min="1"
-            max={product.stock}
+            max={maxStock}
             className="w-12 text-center bg-transparent border-none focus:outline-none py-2"
           />
           <button
-            onClick={() => quantity < product.stock && setQuantity(quantity + 1)}
+            onClick={() => quantity < maxStock && setQuantity(quantity + 1)}
             className="px-3 py-2 border-l border-gray-700 hover:bg-gray-800"
-            disabled={quantity >= product.stock}
+            disabled={quantity >= maxStock}
           >
             +
           </button>

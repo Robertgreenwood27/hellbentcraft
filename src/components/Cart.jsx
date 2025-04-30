@@ -5,19 +5,37 @@ import { useCart } from '@/lib/cartContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity, clearCart } = useCart();
   const router = useRouter();
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
   
-  const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  // Filter out any invalid cart items before calculating
+  const validCart = Array.isArray(cart) ? cart.filter(item => 
+    item && 
+    item._id && 
+    item.title && 
+    typeof item.price === 'number' && 
+    typeof item.quantity === 'number' && 
+    item.image && 
+    item.slug
+  ) : [];
+  
+  const subtotal = validCart.reduce((total, item) => total + item.price * item.quantity, 0);
   
   const handleCheckout = () => {
+    if (validCart.length === 0) return;
+    
+    setIsCheckingOut(true);
     // Will connect with Stripe later
-    router.push('/checkout');
+    setTimeout(() => {
+      router.push('/checkout');
+    }, 500);
   };
   
-  if (cart.length === 0) {
+  if (!validCart.length) {
     return (
       <div className="min-h-screen bg-black text-gray-200 pt-24">
         <div className="max-w-4xl mx-auto px-4 py-12 text-center">
@@ -44,15 +62,21 @@ export default function Cart() {
         </h1>
         
         <div className="mb-8">
-          {cart.map((item) => (
+          {validCart.map((item) => (
             <div key={item._id} className="flex flex-col sm:flex-row items-start gap-4 py-6 border-b border-gray-800">
               <div className="w-24 h-24 relative flex-shrink-0">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover rounded-md"
-                />
+                {item.image ? (
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover rounded-md"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-800 rounded-md flex items-center justify-center">
+                    <span className="text-gray-400 text-xs">No image</span>
+                  </div>
+                )}
               </div>
               
               <div className="flex-grow">
@@ -109,9 +133,20 @@ export default function Cart() {
         <div className="mt-8 text-right">
           <button
             onClick={handleCheckout}
-            className="bg-purple-800 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-medium text-lg transition-colors border border-purple-600"
+            disabled={isCheckingOut}
+            className="bg-purple-800 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-medium text-lg transition-colors border border-purple-600 flex items-center ml-auto"
           >
-            Proceed to Checkout
+            {isCheckingOut ? (
+              <>
+                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Processing...
+              </>
+            ) : (
+              'Proceed to Checkout'
+            )}
           </button>
         </div>
       </div>
