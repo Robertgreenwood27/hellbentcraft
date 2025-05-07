@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-black text-gray-200">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-purple-900/40 to-black"></div>
           <Image 
@@ -28,26 +28,37 @@ export default async function Home() {
           />
         </div>
         
-        <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
-          <Image 
-            src="/images/hellbent-logo.png" 
-            alt="Hellbent Craft" 
-            width={800} 
-            height={800}
-            className="mx-auto mb-8"
-          />
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-4 font-serif">
-            <span className="text-purple-300">Hellbent</span> Craft
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 font-light">
-            Handcrafted gothic art and curiosities for the darkly inclined
-          </p>
-          <Link 
-            href="/shop" 
-            className="inline-block bg-purple-800 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-medium text-lg transition-colors border border-purple-600"
-          >
-            Explore Collection
-          </Link>
+        <div className="relative z-10 w-full">
+          {/* Top striped pattern - UPDATED FOR MOBILE */}
+          <div className="h-16 md:h-36 w-full bg-[repeating-linear-gradient(90deg,black,black_30px,white_30px,white_60px)]"></div>
+          
+          {/* Logo container */}
+          <div className=" py-10 md:py-16">
+            <div className="max-w-4xl mx-auto text-center px-4">
+              <Image 
+                src="/images/hellbent-logo.png" 
+                alt="Hellbent Craft" 
+                width={220}
+                height={220}
+                className="mx-auto mb-8 md:w-[280px] md:h-[280px] w-[180px] h-[180px]"
+              />
+              <h1 className="text-5xl md:text-7xl font-extrabold mb-4 font-serif">
+                <span className="text-purple-300">Hellbent</span> <span className="text-white">Craft</span>
+              </h1>
+              <p className="text-xl md:text-2xl mb-8 font-light max-w-xl mx-auto text-shadow">
+                Handcrafted gothic art and curiosities for the darkly inclined
+              </p>
+              <Link 
+                href="/shop" 
+                className="bg-purple-800 hover:bg-purple-700 text-white px-8 py-3 rounded-md font-medium text-lg transition-colors border border-purple-600 inline-block"
+              >
+                Explore Collection
+              </Link>
+            </div>
+          </div>
+          
+          {/* Bottom striped pattern - UPDATED FOR MOBILE */}
+          <div className="h-16 md:h-36 w-full bg-[repeating-linear-gradient(90deg,black,black_30px,white_30px,white_60px)]"></div>
         </div>
         
         <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">

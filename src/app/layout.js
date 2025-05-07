@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Hellbent Craft | Gothic Art & Curiosities",
   description: "Handcrafted gothic art and curiosities for the darkly inclined",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
 };
 
 export default function RootLayout({ children }) {
