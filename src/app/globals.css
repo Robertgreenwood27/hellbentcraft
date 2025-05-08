@@ -18,6 +18,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-creepster: var(--font-creepster);
 }
 
 body {
@@ -25,6 +26,12 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   position: relative;
+}
+
+/* Creepster font class */
+.font-creepster {
+  font-family: var(--font-creepster);
+  font-weight: 400;
 }
 
 /* Striped background with subtle animation */

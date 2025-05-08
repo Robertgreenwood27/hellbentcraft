@@ -1,19 +1,9 @@
-// src/app/layout.js (updated)
-import { Geist, Geist_Mono } from "next/font/google";
+// src/app/layout.js
 import { CartProvider } from "@/lib/cartContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { geistSans, geistMono, creepster } from "@/lib/fonts";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata = {
   title: "Hellbent Craft | Gothic Art & Curiosities",
@@ -23,10 +13,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${creepster.variable}`}>
+      <body className="antialiased">
         <CartProvider>
           <Header />
           {children}

@@ -33,7 +33,7 @@ export default async function Home() {
           <div className="h-16 md:h-36 w-full bg-[repeating-linear-gradient(90deg,black,black_30px,white_30px,white_60px)]"></div>
           
           {/* Logo container */}
-          <div className=" py-10 md:py-16">
+          <div className="py-10 md:py-16">
             <div className="max-w-4xl mx-auto text-center px-4">
               <Image 
                 src="/images/hellbent-logo.png" 
@@ -42,7 +42,7 @@ export default async function Home() {
                 height={220}
                 className="mx-auto mb-8 md:w-[280px] md:h-[280px] w-[180px] h-[180px]"
               />
-              <h1 className="text-5xl md:text-7xl font-extrabold mb-4 font-serif">
+              <h1 className="text-5xl md:text-7xl font-extrabold mb-4 font-creepster">
                 <span className="text-purple-300">Hellbent</span> <span className="text-white">Craft</span>
               </h1>
               <p className="text-xl md:text-2xl mb-8 font-light max-w-xl mx-auto text-shadow">
